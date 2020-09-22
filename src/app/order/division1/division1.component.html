@@ -143,7 +143,7 @@
         data-live-search="true"
         data-live-search-placeholder="Select Location"
         data-size="10"
-        data-width="150px"
+        data-width="153px"
         data-style="btn-outline-secondary btn-sm"
         class="selectpicker form-control"
         name="LOCATION_ID"
@@ -168,7 +168,7 @@
         data-style="btn-outline-secondary btn-sm"
         data-width="100px"
         data-size="10"
-        data-width="150px"
+        data-width="153px"
         data-container="body"
         class="selectpicker form-control"
         name="STORE_ID"
@@ -183,6 +183,28 @@
           {{ store.STORE_NAME }}
         </option>
       </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1" style="font-size: x-small; font-weight: bold">
+      Included Ship
+    </div>
+    <div class="col-md-7">
+      <input type="checkbox" style="margin-top: 0px" />
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary btn-sm" (click)="onSubmit()">
+        Display
+      </button>
+    </div>
+    <div class="col-md-2">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm"
+        (click)="onProceed()"
+      >
+        Proceed
+      </button>
     </div>
   </div>
 </div>

@@ -45,6 +45,8 @@ export class Division2Component implements OnInit {
       filter: true,
       checkboxSelection: true,
       resizable: true,
+      width: '200px',
+      cellStyle: { 'font-size': 'small' },
     },
     {
       headerName: 'Item ID',
@@ -60,6 +62,8 @@ export class Division2Component implements OnInit {
       sortable: true,
       filter: true,
       resizable: true,
+      width: '240px',
+      cellStyle: { 'font-size': 'small' },
     },
 
     {
@@ -75,6 +79,8 @@ export class Division2Component implements OnInit {
       sortable: true,
       filter: true,
       resizable: true,
+      width: '90px',
+      cellStyle: { 'font-size': 'small' },
     },
     {
       headerName: 'Location Id',
@@ -88,6 +94,9 @@ export class Division2Component implements OnInit {
       field: 'StoreName',
       sortable: true,
       filter: true,
+      width: '300px',
+      resizable: true,
+      cellStyle: { 'font-size': 'small' },
     },
     {
       headerName: 'CurrentAllocateQty',
@@ -166,12 +175,18 @@ export class Division2Component implements OnInit {
       field: 'allocatedQty',
       sortable: true,
       filter: true,
+      width: '100px',
+      resizable: true,
+      cellStyle: { textAlign: 'right', 'font-size': 'small' },
     },
     {
       headerName: 'Free Stock',
       field: 'FREE_STOCK',
       sortable: true,
       filter: true,
+      width: '100px',
+      resizable: true,
+      cellStyle: { textAlign: 'right' },
     },
     {
       headerName: 'TOTAL_ALLOCATED',
@@ -187,6 +202,8 @@ export class Division2Component implements OnInit {
       sortable: true,
       filter: true,
       resizable: true,
+      width: '100px',
+      cellStyle: { textAlign: 'right', 'font-size': 'small' },
     },
     {
       headerName: 'RequiredQty',
@@ -211,6 +228,8 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       editable: true,
+      width: '100px',
+      cellStyle: { textAlign: 'right', 'font-size': 'small' },
     },
     {
       headerName: 'Deallocate Qty',
@@ -219,6 +238,8 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       editable: true,
+      width: '100px',
+      cellStyle: { textAlign: 'right', 'font-size': 'small' },
     },
     {
       headerName: 'Issue Qty',
@@ -226,14 +247,17 @@ export class Division2Component implements OnInit {
       sortable: true,
       filter: true,
       resizable: true,
+      width: '100px',
+      cellStyle: { textAlign: 'right', 'font-size': 'small' },
     },
     {
-      headerName: 'USED_QTY',
+      headerName: 'Consume Qty',
       field: 'USED_QTY',
       sortable: true,
       filter: true,
       resizable: true,
-      hide: true,
+      width: '100px',
+      cellStyle: { textAlign: 'right', 'font-size': 'small' },
     },
     {
       headerName: 'Extra Qty',
@@ -241,6 +265,8 @@ export class Division2Component implements OnInit {
       sortable: true,
       filter: true,
       resizable: true,
+      width: '100px',
+      cellStyle: { textAlign: 'right', 'font-size': 'small' },
     },
     {
       headerName: 'NO_OF_LOTS',
