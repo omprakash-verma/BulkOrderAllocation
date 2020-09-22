@@ -1,166 +1,188 @@
-<form #form="ngForm" autocomplete="off">
-  <div class="container">
-    <div class="row">
-      <div class="col">Order</div>
-      <div class="col">
-        <select
-          title="Select"
-          data-live-search="true"
-          data-live-search-placeholder="Select Order"
-          data-width="100px"
-          data-size="10"
-          class="selectpicker form-control"
-          name="SO_ID"
-          [(ngModel)]="SO_ID"
-          (change)="onOrderChange(SO_ID)"
-        >
-          <option value="">Select</option>
-          <option *ngFor="let order of orderList" value="{{ order.SO_ID }}">
-            {{ order.ORDER_NO }}
-          </option>
-        </select>
-      </div>
-      <div class="col">Item Group</div>
-      <div class="col">
-        <select
-          title="Select"
-          data-live-search="true"
-          data-live-search-placeholder="Select Item Group"
-          data-width="100px"
-          data-size="10"
-          class="selectpicker form-control"
-          name="ITEM_GROUP_ID"
-          [(ngModel)]="ITEM_GROUP_ID"
-          (change)="onItemGroupChange(this.SO_ID, ITEM_GROUP_ID)"
-        >
-          <option value="">Select</option>
-          <option
-            *ngFor="let itemgroup of itemGroupList"
-            value="{{ itemgroup.ID }}"
-          >
-            {{ itemgroup.ITEM_GROUP_NAME }}
-          </option>
-        </select>
-      </div>
-      <div class="col">Summary Item</div>
-      <div class="col">
-        <select
-          title="Select"
-          data-live-search="true"
-          data-live-search-placeholder="Select Summary Item"
-          data-width="100px"
-          data-size="10"
-          class="selectpicker form-control"
-          name="SUMMARY_ITEM_ID"
-          [(ngModel)]="SUMMARY_ITEM_ID"
-          (change)="onSummaryItemChange(this.SO_ID, SUMMARY_ITEM_ID)"
-        >
-          <option value="">Select</option>
-          <option
-            *ngFor="let summaryItem of this.summaryItemList"
-            value="{{ summaryItem.ITEM_ID }}"
-          >
-            {{ summaryItem.ITEM_NAME }}
-          </option>
-        </select>
-      </div>
-      <div class="col">Item</div>
-      <div class="col">
-        <select
-          title="Select"
-          data-live-search="true"
-          data-live-search-placeholder="Select Item"
-          data-width="100px"
-          data-size="10"
-          data-container="body"
-          class="selectpicker form-control"
-          name="ITEM_ID"
-          [(ngModel)]="ITEM_ID"
-        >
-          <option value="">Select</option>
-          <option *ngFor="let item of this.itemList" value="{{ item.ITEM_ID }}">
-            {{ item.ITEM_NAME }}
-          </option>
-        </select>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" style="font-size: x-small; font-weight: bold">
+      Order
     </div>
-    <div class="row">
-      <div class="col">Job No.</div>
-      <div class="col">
-        <select
-          title="Select"
-          data-live-search="true"
-          data-live-search-placeholder="Select Job No."
-          data-width="100px"
-          data-size="10"
-          class="selectpicker form-control"
-          name="JOB_ID"
-          [(ngModel)]="JOB_ID"
-        >
-          <option value="">Select</option>
-          <option *ngFor="let job of this.jobList" value="{{ job.jobId }}">
-            {{ job.jobNo }}
-          </option>
-        </select>
-      </div>
-      <div class="col">Location</div>
-      <div class="col">
-        <select
-          title="Select"
-          data-live-search="true"
-          data-live-search-placeholder="Select Location"
-          data-width="100px"
-          data-size="10"
-          class="selectpicker form-control"
-          name="LOCATION_ID"
-          [(ngModel)]="LOCATION_ID"
-          (change)="onLocationChange(LOCATION_ID)"
-        >
-          <option value="">Select</option>
-          <option
-            *ngFor="let location of this.locationList"
-            value="{{ location.LOCATION_ID }}"
-          >
-            {{ location.LOCATION_NAME }}
-          </option>
-        </select>
-      </div>
-      <div class="col">Store</div>
-      <div class="col">
-        <select
-          title="Select"
-          data-live-search="true"
-          data-live-search-placeholder="Select Store"
-          data-width="100px"
-          data-size="10"
-          class="selectpicker form-control"
-          name="STORE_ID"
-          [(ngModel)]="STORE_ID"
-        >
-          <option value="">Select</option>
-          <option *ngFor="let store of storeList" value="{{ store.STORE_ID }}">
-            {{ store.STORE_NAME }}
-          </option>
-        </select>
-      </div>
-      <div class="col"></div>
-      <div class="col"></div>
+    <div class="col-md-4" style="font-size: x-small; font-weight: bold">
+      Item Group
     </div>
-    <div class="row">
-      <div class="col">Include Shipped Orders</div>
-      <div class="col">
-        <input type="checkbox" />
-      </div>
-      <div class="col"></div>
-      <div class="col">
-        <button type="submit " class="btn btn-primary" (click)="onSubmit()">
-          Display
-        </button>
-      </div>
-      <div class="col">
-        <button class="btn btn-primary" (click)="onProceed()">Proceed</button>
-      </div>
-      <div class="col"></div>
+    <div class="col-md-4" style="font-size: x-small; font-weight: bold">
+      Summary Item
     </div>
   </div>
-</form>
+  <div class="row">
+    <div class="col">
+      <select
+        title="Select"
+        data-live-search="true"
+        data-live-search-placeholder="Select Order"
+        data-size="10"
+        data-style="btn-outline-secondary btn-sm"
+        class="selectpicker form-control"
+        name="SO_ID"
+        [(ngModel)]="SO_ID"
+        (change)="onOrderChange(SO_ID)"
+      >
+        <option value="" style="font-size: small">Select</option>
+        <option
+          *ngFor="let order of orderList"
+          value="{{ order.SO_ID }}"
+          style="font-size: small"
+        >
+          {{ order.ORDER_NO }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col">
+      <select
+        title="Select"
+        data-live-search="true"
+        data-live-search-placeholder="Select Item Group"
+        data-size="10"
+        data-style="btn-outline-secondary btn-sm"
+        class="selectpicker form-control"
+        name="ITEM_GROUP_ID"
+        [(ngModel)]="ITEM_GROUP_ID"
+        (change)="onItemGroupChange(this.SO_ID, ITEM_GROUP_ID)"
+      >
+        <option value="" style="font-size: small">Select</option>
+        <option
+          *ngFor="let itemgroup of itemGroupList"
+          value="{{ itemgroup.ID }}"
+          style="font-size: small"
+        >
+          {{ itemgroup.ITEM_GROUP_NAME }}
+        </option>
+      </select>
+    </div>
+    <div class="col">
+      <select
+        title="Select"
+        data-live-search="true"
+        data-live-search-placeholder="Select Summary Item"
+        data-size="10"
+        data-style="btn-outline-secondary btn-sm"
+        class="selectpicker form-control"
+        name="SUMMARY_ITEM_ID"
+        [(ngModel)]="SUMMARY_ITEM_ID"
+        (change)="onSummaryItemChange(this.SO_ID, SUMMARY_ITEM_ID)"
+      >
+        <option value="" style="font-size: small">Select</option>
+        <option
+          *ngFor="let summaryItem of this.summaryItemList"
+          value="{{ summaryItem.ITEM_ID }}"
+          style="font-size: small"
+        >
+          {{ summaryItem.ITEM_NAME }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4" style="font-size: x-small; font-weight: bold">
+      Item
+    </div>
+    <div class="col-md-4" style="font-size: x-small; font-weight: bold">
+      Job
+    </div>
+    <div class="col-md-2" style="font-size: x-small; font-weight: bold">
+      Location
+    </div>
+    <div class="col-md-2" style="font-size: x-small; font-weight: bold">
+      Store
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <select
+        title="Select"
+        data-live-search="true"
+        data-live-search-placeholder="Select Item"
+        data-size="10"
+        data-style="btn-outline-secondary btn-sm"
+        data-container="body"
+        class="selectpicker form-control"
+        name="ITEM_ID"
+        [(ngModel)]="ITEM_ID"
+      >
+        <option value="" style="font-size: small">Select</option>
+        <option
+          *ngFor="let item of this.itemList"
+          value="{{ item.ITEM_ID }}"
+          style="font-size: small"
+        >
+          {{ item.ITEM_NAME }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select
+        title="Select"
+        data-live-search="true"
+        data-live-search-placeholder="Select Job No."
+        data-size="10"
+        data-style="btn-outline-secondary btn-sm"
+        class="selectpicker form-control"
+        name="JOB_ID"
+        [(ngModel)]="JOB_ID"
+      >
+        <option value="" style="font-size: small">Select</option>
+        <option
+          *ngFor="let job of this.jobList"
+          value="{{ job.jobId }}"
+          style="font-size: small"
+        >
+          {{ job.jobNo }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select
+        title="Select"
+        data-live-search="true"
+        data-live-search-placeholder="Select Location"
+        data-size="10"
+        data-width="150px"
+        data-style="btn-outline-secondary btn-sm"
+        class="selectpicker form-control"
+        name="LOCATION_ID"
+        [(ngModel)]="LOCATION_ID"
+        (change)="onLocationChange(LOCATION_ID)"
+      >
+        <option value="" style="font-size: small">Select</option>
+        <option
+          *ngFor="let location of this.locationList"
+          value="{{ location.LOCATION_ID }}"
+          style="font-size: small"
+        >
+          {{ location.LOCATION_NAME }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select
+        title="Select"
+        data-live-search="true"
+        data-live-search-placeholder="Select Store"
+        data-style="btn-outline-secondary btn-sm"
+        data-width="100px"
+        data-size="10"
+        data-width="150px"
+        data-container="body"
+        class="selectpicker form-control"
+        name="STORE_ID"
+        [(ngModel)]="STORE_ID"
+      >
+        <option value="" style="font-size: small">Select</option>
+        <option
+          *ngFor="let store of storeList"
+          value="{{ store.STORE_ID }}"
+          style="font-size: small"
+        >
+          {{ store.STORE_NAME }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
