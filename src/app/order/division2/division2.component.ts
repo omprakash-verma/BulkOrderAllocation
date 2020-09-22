@@ -356,6 +356,7 @@ export class Division2Component implements OnInit {
       alert(data['usrMsg']);
     } else {
       this.rowData = data['result'];
+      console.log(data);
     }
   }
 

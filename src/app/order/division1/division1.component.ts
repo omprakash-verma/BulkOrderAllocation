@@ -52,12 +52,12 @@ export class Division1Component implements OnInit {
   }
 
   onOrderChange(SO_ID) {
-    this.service
-      .getJobOnOrder(SO_ID)
-      .then((data) => (this.jobList = data['job']));
-    // this.service
-    //   .getItemOnOrder(SO_ID)
-    //   .then((data) => (this.itemList = data['result']));
+    this.service.getJobOnOrder(SO_ID).then((data) => {
+      this.jobList = data['job'];
+      setTimeout(() => {
+        $('.selectpicker').selectpicker('refresh');
+      }, 1);
+    });
   }
 
   onItemGroupChange(SO_ID, ITEM_GROUP_ID) {
