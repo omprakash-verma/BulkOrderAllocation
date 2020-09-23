@@ -16,6 +16,13 @@ export class Division2Component implements OnInit {
 
   columnDefs = [
     {
+      headerName: '',
+      field: 'isChecked',
+      checkboxSelection: true,
+      width: '50px',
+      resizable: true,
+    },
+    {
       headerName: 'EDITNOTALLOWED',
       field: 'EDITNOTALLOWED',
       sortable: true,
@@ -43,10 +50,9 @@ export class Division2Component implements OnInit {
       field: 'jobNo',
       sortable: true,
       filter: true,
-      checkboxSelection: true,
       resizable: true,
       width: '200px',
-      cellStyle: { 'font-size': 'small' },
+      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
     },
     {
       headerName: 'Item ID',
@@ -63,7 +69,8 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       width: '240px',
-      cellStyle: { 'font-size': 'small' },
+
+      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
     },
 
     {
@@ -80,7 +87,7 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       width: '90px',
-      cellStyle: { 'font-size': 'small' },
+      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
     },
     {
       headerName: 'Location Id',
@@ -96,7 +103,7 @@ export class Division2Component implements OnInit {
       filter: true,
       width: '300px',
       resizable: true,
-      cellStyle: { 'font-size': 'small' },
+      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
     },
     {
       headerName: 'CurrentAllocateQty',
@@ -173,11 +180,14 @@ export class Division2Component implements OnInit {
     {
       headerName: 'Allocated Qty',
       field: 'allocatedQty',
-      sortable: true,
-      filter: true,
+
       width: '100px',
       resizable: true,
-      cellStyle: { textAlign: 'right', 'font-size': 'small' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'Free Stock',
@@ -186,7 +196,11 @@ export class Division2Component implements OnInit {
       filter: true,
       width: '100px',
       resizable: true,
-      cellStyle: { textAlign: 'right' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'TOTAL_ALLOCATED',
@@ -203,7 +217,11 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       width: '100px',
-      cellStyle: { textAlign: 'right', 'font-size': 'small' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'RequiredQty',
@@ -229,7 +247,11 @@ export class Division2Component implements OnInit {
       resizable: true,
       editable: true,
       width: '100px',
-      cellStyle: { textAlign: 'right', 'font-size': 'small' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'Deallocate Qty',
@@ -239,7 +261,11 @@ export class Division2Component implements OnInit {
       resizable: true,
       editable: true,
       width: '100px',
-      cellStyle: { textAlign: 'right', 'font-size': 'small' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'Issue Qty',
@@ -248,7 +274,11 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       width: '100px',
-      cellStyle: { textAlign: 'right', 'font-size': 'small' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'Consume Qty',
@@ -257,7 +287,11 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       width: '100px',
-      cellStyle: { textAlign: 'right', 'font-size': 'small' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'Extra Qty',
@@ -266,7 +300,11 @@ export class Division2Component implements OnInit {
       filter: true,
       resizable: true,
       width: '100px',
-      cellStyle: { textAlign: 'right', 'font-size': 'small' },
+      cellStyle: {
+        textAlign: 'right',
+        'font-size': 'x-small',
+        padding: '5px 5px',
+      },
     },
     {
       headerName: 'NO_OF_LOTS',
@@ -345,16 +383,25 @@ export class Division2Component implements OnInit {
   }
 
   getSelectedRows(myGrid) {
-    console.log('Hello');
-    let selectedNodes = myGrid.getSelectedNodes();
-    let selectedData = selectedNodes.map((node) => node.data);
-    let data = { data: { datum: selectedData } };
+    // let selectedNodes = myGrid.getSelectedNodes();
+    let selectedRows = myGrid.getSelectedRows();
+    // console.log(selectedRows);
+    // console.log(selectedNodes);
+    // let selectedData = selectedNodes.map((node) => node.data);
+    // console.log(selectedData);
+    let newSelectedData = [];
+    for (let row in selectedRows) {
+      console.log(row['isChecked']);
+    }
+
+    // node.OrderItmID,node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.);
+    console.log(newSelectedData);
+    let data = { data: { datum: selectedRows } };
     console.log(`${JSON.stringify(data)}`);
     this.service.postData(`${JSON.stringify(data)}`).then();
   }
 
   onGridReady(myGrid) {
-    console.log('yo');
     this.service.myGrid = myGrid.api;
   }
 }

@@ -81,11 +81,13 @@ export class Division1Component implements OnInit {
     });
   }
 
-  onLocationChange(LOCATION_ID) {
-    this.service
-      .getStoreOnLoc(LOCATION_ID)
-      .then((data) => (this.storeList = data['result']));
-  }
+  //Problem Here
+  // onLocationChange(LOCATION_ID) {
+  //   this.service
+  //     .getStoreOnLoc(LOCATION_ID)
+  //     .then((data) => (this.storeList = data['result']));
+  //   console.log(this.storeList);
+  // }
 
   onSubmit() {
     this.service.SO_ID = this.SO_ID;
