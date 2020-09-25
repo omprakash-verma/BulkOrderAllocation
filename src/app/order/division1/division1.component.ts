@@ -31,8 +31,10 @@ export class Division1Component implements OnInit {
   JOB_ID: string;
   LOCATION_ID: string;
   STORE_ID: string;
-  ITEM_GROUP_ID;
-  SUMMARY_ITEM_ID;
+  ITEM_GROUP_ID: string;
+  SUMMARY_ITEM_ID: string;
+  isShipped;
+  isValid = true;
 
   ngOnInit(): void {
     this.initialData();
@@ -81,6 +83,18 @@ export class Division1Component implements OnInit {
     });
   }
 
+  validateForm() {
+    this.isValid = true;
+    if (
+      this.service.SO_ID == undefined &&
+      this.service.ITEM_ID == undefined &&
+      this.service.JOB_ID == undefined
+    ) {
+      this.isValid = false;
+    }
+    return this.isValid;
+  }
+
   //Problem Here
   // onLocationChange(LOCATION_ID) {
   //   this.service
@@ -90,12 +104,19 @@ export class Division1Component implements OnInit {
   // }
 
   onSubmit() {
+    console.log(this.SO_ID);
+    this.isShipped = this.isShipped ? 1 : 0;
     this.service.SO_ID = this.SO_ID;
     this.service.ITEM_ID = this.ITEM_ID;
     this.service.JOB_ID = this.JOB_ID;
     this.service.LOCATION_ID = this.LOCATION_ID;
     this.service.STORE_ID = this.STORE_ID;
-    this.service.onDiv1ComponentButtonClick();
+    this.service.isShipped = this.isShipped;
+    console.log(this.isValid);
+    if (this.validateForm()) {
+      this.service.onDiv1ComponentButtonClick();
+    }
+    console.log(this.isValid);
   }
 
   onProceed() {

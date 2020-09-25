@@ -17,3 +17,13 @@ $color-black: #000;
 .my-dropdown {
   border: 1px dashed $color-black;
 }
+
+.message {
+  text-align: center;
+  background-color: red;
+  color: #fff;
+}
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}

@@ -4,7 +4,6 @@
   <div>
     <ag-grid-angular
       #myGrid
-      suppressHorizontalScroll="false"
       class="ag-theme-alpine my-grid"
       [columnDefs]="columnDefs"
       [rowData]="rowData"
@@ -13,7 +12,9 @@
       rowSelection="multiple"
       width="Auto"
       [headerHeight]="25"
+      [rowHeight]="35"
       (gridReady)="onGridReady($event)"
+      (cellValueChanged)="onCellValueChanged($event)"
     >
     </ag-grid-angular>
   </div>

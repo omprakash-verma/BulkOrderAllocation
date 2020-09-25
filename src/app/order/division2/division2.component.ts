@@ -16,17 +16,9 @@ export class Division2Component implements OnInit {
 
   columnDefs = [
     {
-      headerName: '',
-      field: 'isChecked',
-      checkboxSelection: true,
-      width: '50px',
-      resizable: true,
-    },
-    {
       headerName: 'EDITNOTALLOWED',
       field: 'EDITNOTALLOWED',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -34,7 +26,6 @@ export class Division2Component implements OnInit {
       headerName: 'OrderItmID',
       field: 'OrderItmID',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -42,23 +33,22 @@ export class Division2Component implements OnInit {
       headerName: 'Job ID',
       field: 'jobId',
       sortable: true,
-      filter: true,
       hide: true,
     },
     {
       headerName: 'Job No',
       field: 'jobNo',
       sortable: true,
-      filter: true,
       resizable: true,
-      width: '200px',
-      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
+      width: '150px',
+      cellStyle: { 'font-size': 'x-small' },
+      class: 'myField',
+      checkboxSelection: true,
     },
     {
       headerName: 'Item ID',
       field: 'itemId',
       sortable: true,
-      filter: true,
       hide: true,
     },
 
@@ -66,50 +56,45 @@ export class Division2Component implements OnInit {
       headerName: 'Item',
       field: 'itemName',
       sortable: true,
-      filter: true,
       resizable: true,
-      width: '240px',
-
-      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
+      width: '180px',
+      class: 'myField',
+      cellStyle: { 'font-size': 'x-small' },
     },
 
     {
       headerName: 'UOM ID',
       field: 'uomId',
       sortable: true,
-      filter: true,
       hide: true,
     },
     {
       headerName: 'UOM',
       field: 'UOM',
       sortable: true,
-      filter: true,
       resizable: true,
       width: '90px',
-      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
+      cellStyle: { 'font-size': 'x-small' },
+      class: 'myField',
     },
     {
       headerName: 'Location Id',
       field: 'LocationId',
       sortable: true,
-      filter: true,
       hide: true,
     },
     {
       headerName: 'Store',
       field: 'StoreName',
       sortable: true,
-      filter: true,
-      width: '300px',
+      width: '220px',
       resizable: true,
-      cellStyle: { 'font-size': 'x-small', padding: '5px 5px' },
+      cellStyle: { 'font-size': 'x-small' },
     },
     {
       headerName: 'CurrentAllocateQty',
       field: 'CurrentAllocateQty',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -117,7 +102,6 @@ export class Division2Component implements OnInit {
       headerName: 'IsWipItm',
       field: 'IsWipItm',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -125,7 +109,6 @@ export class Division2Component implements OnInit {
       headerName: 'UomDecPlaces',
       field: 'UomDecPlaces',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -133,7 +116,6 @@ export class Division2Component implements OnInit {
       headerName: 'BaseUomId',
       field: 'BaseUomId',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -141,7 +123,6 @@ export class Division2Component implements OnInit {
       headerName: 'BaseUom',
       field: 'BaseUom',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -149,7 +130,6 @@ export class Division2Component implements OnInit {
       headerName: 'BaseUomDecPlaces',
       field: 'BaseUomDecPlaces',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -157,7 +137,6 @@ export class Division2Component implements OnInit {
       headerName: 'SO_DT_ID',
       field: 'SO_DT_ID',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -165,7 +144,6 @@ export class Division2Component implements OnInit {
       headerName: 'OrderQty',
       field: 'OrderQty',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -173,7 +151,6 @@ export class Division2Component implements OnInit {
       headerName: 'AvalStock',
       field: 'AvalStock',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -186,27 +163,23 @@ export class Division2Component implements OnInit {
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'Free Stock',
       field: 'FREE_STOCK',
       sortable: true,
-      filter: true,
       width: '100px',
       resizable: true,
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'TOTAL_ALLOCATED',
       field: 'TOTAL_ALLOCATED',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -214,20 +187,17 @@ export class Division2Component implements OnInit {
       headerName: 'To Be Allocated Qty',
       field: 'ToBeAllocatedQTY',
       sortable: true,
-      filter: true,
       resizable: true,
       width: '100px',
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'RequiredQty',
       field: 'RequiredQty',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -235,7 +205,6 @@ export class Division2Component implements OnInit {
       headerName: 'RequiredQty1',
       field: 'RequiredQty1',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -243,74 +212,63 @@ export class Division2Component implements OnInit {
       headerName: 'Allocate Qty',
       field: 'CURRENT_ALLOCATE_QTY',
       sortable: true,
-      filter: true,
       resizable: true,
       editable: true,
       width: '100px',
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'Deallocate Qty',
       field: 'CURRENT_DEALLOCATE_QTY',
       sortable: true,
-      filter: true,
       resizable: true,
       editable: true,
       width: '100px',
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'Issue Qty',
       field: 'issue_qty',
       sortable: true,
-      filter: true,
       resizable: true,
       width: '100px',
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'Consume Qty',
       field: 'USED_QTY',
       sortable: true,
-      filter: true,
       resizable: true,
       width: '100px',
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'Extra Qty',
       field: 'EXTRA_QTY',
       sortable: true,
-      filter: true,
       resizable: true,
       width: '100px',
       cellStyle: {
         textAlign: 'right',
         'font-size': 'x-small',
-        padding: '5px 5px',
       },
     },
     {
       headerName: 'NO_OF_LOTS',
       field: 'NO_OF_LOTS',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -318,7 +276,6 @@ export class Division2Component implements OnInit {
       headerName: 'FREE_STOCK_LOT',
       field: 'FREE_STOCK_LOT',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -326,7 +283,6 @@ export class Division2Component implements OnInit {
       headerName: 'ALLOCATED_LOT_STOCK',
       field: 'ALLOCATED_LOT_STOCK',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -334,7 +290,6 @@ export class Division2Component implements OnInit {
       headerName: 'ALLOW_SINGLE_VENDORLOT',
       field: 'ALLOW_SINGLE_VENDORLOT',
       sortable: true,
-      filter: true,
       resizable: true,
       hide: true,
     },
@@ -349,9 +304,12 @@ export class Division2Component implements OnInit {
           this.getGridData(
             this.service.SO_ID,
             this.service.ITEM_ID,
+            this.service.ITEM_GROUP_ID,
+            this.service.SUMMARY_ITEM_ID,
             this.service.JOB_ID,
             this.service.LOCATION_ID,
-            this.service.STORE_ID
+            this.service.STORE_ID,
+            this.service.isShipped
           );
         }
       );
@@ -366,16 +324,28 @@ export class Division2Component implements OnInit {
     }
   }
 
-  async getGridData(SO_ID, ITEM_ID, JOB_ID, LOCATION_ID, STORE_ID) {
+  async getGridData(
+    SO_ID,
+    ITEM_GROUP_ID,
+    SUMMARY_ITEM_ID,
+    ITEM_ID,
+    JOB_ID,
+    LOCATION_ID,
+    STORE_ID,
+    isChecked
+  ) {
     const data = await this.service.getGrid(
       SO_ID,
       ITEM_ID,
+      ITEM_GROUP_ID,
+      SUMMARY_ITEM_ID,
       JOB_ID,
       LOCATION_ID,
-      STORE_ID
+      STORE_ID,
+      isChecked
     );
     if (data['result'] == 'no data') {
-      alert(data['usrMsg']);
+      alert('Select Order!');
     } else {
       this.rowData = data['result'];
       console.log(data);
@@ -383,25 +353,50 @@ export class Division2Component implements OnInit {
   }
 
   getSelectedRows(myGrid) {
-    // let selectedNodes = myGrid.getSelectedNodes();
-    let selectedRows = myGrid.getSelectedRows();
-    // console.log(selectedRows);
-    // console.log(selectedNodes);
-    // let selectedData = selectedNodes.map((node) => node.data);
-    // console.log(selectedData);
-    let newSelectedData = [];
-    for (let row in selectedRows) {
-      console.log(row['isChecked']);
+    let selectedNodes = myGrid.getSelectedNodes();
+    let selectedData = selectedNodes.map((node) => node.data);
+    if (selectedData.length != 0) {
+      let dataVal = `{"data":{"datum": ${JSON.stringify(selectedData)}}}`;
+      console.log(dataVal);
+      this.service
+        .postData(dataVal)
+        .then((data) => (this.rowData = data['result']));
+      this.getGridData(
+        this.service.SO_ID,
+        this.service.ITEM_ID,
+        this.service.ITEM_GROUP_ID,
+        this.service.SUMMARY_ITEM_ID,
+        this.service.JOB_ID,
+        this.service.LOCATION_ID,
+        this.service.STORE_ID,
+        this.service.isShipped
+      );
     }
-
-    // node.OrderItmID,node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.node.);
-    console.log(newSelectedData);
-    let data = { data: { datum: selectedRows } };
-    console.log(`${JSON.stringify(data)}`);
-    this.service.postData(`${JSON.stringify(data)}`).then();
   }
 
   onGridReady(myGrid) {
     this.service.myGrid = myGrid.api;
+  }
+
+  onCellValueChanged(params) {
+    console.log(params);
+    console.log(params.value, 'New Value');
+    if (params.colDef.headerName == 'Allocate Qty') {
+      if (
+        Number(params.value) > Number(params.data.FREE_STOCK) &&
+        Number(params.value) >
+          Number(params.data.ToBeAllocatedQTY && Number(params.value > 0))
+      ) {
+        console.log('Hello');
+        params.node.setDataValue('CURRENT_ALLOCATE_QTY', params.oldValue);
+      }
+    } else if (params.colDef.headerName == 'Deallocate Qty') {
+      if (
+        Number(params.value) > Number(params.data.allocatedQty) &&
+        Number(params.value > 0)
+      ) {
+        params.node.setDataValue('CURRENT_DEALLOCATE_QTY', params.oldValue);
+      }
+    }
   }
 }

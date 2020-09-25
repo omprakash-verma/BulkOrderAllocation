@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { GroupCellRenderer } from 'ag-grid-community';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { timeout } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -16,12 +17,15 @@ export class ServiceService {
   detailGet: Detailget[];
 
   SO_ID: string;
+  ITEM_GROUP_ID: string;
+  SUMMARY_ITEM_ID: string;
   ITEM_ID: string;
   JOB_ID: string;
   LOCATION_ID: string;
   STORE_ID: string;
   myGrid;
   orderList: any;
+  isShipped: number;
 
   invokeDiv2ComponentFunction = new EventEmitter();
   subsVar: Subscription;
@@ -102,21 +106,33 @@ export class ServiceService {
       .toPromise();
   }
 
-  getGrid(SO_ID, ITEM_ID, JOB_ID, LOCATION_ID, STORE_ID) {
+  getGrid(
+    SO_ID,
+    ITEM_GROUP_ID,
+    SUMMARY_ITEM_ID,
+    ITEM_ID,
+    JOB_ID,
+    LOCATION_ID,
+    STORE_ID,
+    isShipped
+  ) {
     return this.http
       .post(environment.apiURL + 'GetValue', {
         p_orderID: SO_ID,
+        p_itemGroupID: ITEM_GROUP_ID,
+        p_summaryItemID: SUMMARY_ITEM_ID,
         p_itemID: ITEM_ID,
         p_jobID: JOB_ID,
         p_locationID: LOCATION_ID,
         p_storeID: STORE_ID,
+        p_IsShipped: isShipped,
       })
       .toPromise();
   }
 
   postData(body) {
     return this.http
-      .post(environment.apiURL + 'SaveValue', { body })
+      .post(environment.apiURL + 'SaveValue', { json: body })
       .toPromise();
   }
 }
