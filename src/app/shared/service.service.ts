@@ -26,12 +26,17 @@ export class ServiceService {
   myGrid;
   orderList: any;
   isShipped: number;
+  isAllocateQtyValid = true;
+  isDeallocateQtyValid = true;
 
   invokeDiv2ComponentFunction = new EventEmitter();
   subsVar: Subscription;
 
   invokeDiv2ComponentFunction2 = new EventEmitter();
   subsVar2: Subscription;
+
+  invokeDiv1ComponentFunction = new EventEmitter();
+  subsVar3: Subscription;
 
   constructor(private http: HttpClient) {}
 
@@ -41,6 +46,10 @@ export class ServiceService {
 
   onDiv1ComponentButton2Click() {
     this.invokeDiv2ComponentFunction2.emit();
+  }
+
+  onDiv2CellValuChange() {
+    this.invokeDiv1ComponentFunction.emit();
   }
 
   getDropdownData() {

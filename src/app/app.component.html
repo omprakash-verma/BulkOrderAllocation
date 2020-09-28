@@ -1,5 +1,10 @@
 <div>
+  <div class="message" *ngIf="!isAllocateQtyValid">
+    Allocate Qty cannot be greater than Free Stock/To be Allocated Qty
+  </div>
+  <div class="message" *ngIf="!isDeallocateQtyValid">
+    Deallocate Qty cannot be greater than Allocated Qty
+  </div>
   <master></master>
   <detail></detail>
-  <sample></sample>
 </div>

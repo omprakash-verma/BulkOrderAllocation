@@ -14,6 +14,9 @@ export class Division2Component implements OnInit {
   detailGet: Detailget[];
   detail: Detail;
 
+  isAllocateQtyValid = true;
+  isDeallocateQtyValid = true;
+
   columnDefs = [
     {
       headerName: 'EDITNOTALLOWED',
@@ -378,25 +381,58 @@ export class Division2Component implements OnInit {
     this.service.myGrid = myGrid.api;
   }
 
+  flagForAllocateQty = 0;
+  flagForDeallocateQty = 0;
   onCellValueChanged(params) {
-    console.log(params);
-    console.log(params.value, 'New Value');
     if (params.colDef.headerName == 'Allocate Qty') {
       if (
-        Number(params.value) > Number(params.data.FREE_STOCK) &&
-        Number(params.value) >
-          Number(params.data.ToBeAllocatedQTY && Number(params.value > 0))
+        Number(params.value) > Number(params.data.FREE_STOCK) ||
+        Number(params.value) > Number(params.data.ToBeAllocatedQTY)
       ) {
-        console.log('Hello');
+        this.flagForAllocateQty = 1;
         params.node.setDataValue('CURRENT_ALLOCATE_QTY', params.oldValue);
+        this.isAllocateQtyValid = false;
+        this.service.isAllocateQtyValid = this.isAllocateQtyValid;
+      } else {
+        if (this.flagForAllocateQty == 0) {
+          params.node.setDataValue(
+            'allocatedQty',
+            Number(params.data.allocatedQty) + Number(params.value)
+          );
+          params.node.setDataValue(
+            'FREE_STOCK',
+            Number(params.data.FREE_STOCK) - Number(params.value)
+          );
+          params.node.setDataValue(
+            'ToBeAllocatedQTY',
+            Number(params.data.ToBeAllocatedQTY) - Number(params.value)
+          );
+          this.isAllocateQtyValid = true;
+          this.service.isAllocateQtyValid = this.isAllocateQtyValid;
+        } else {
+          this.flagForAllocateQty = 0;
+        }
       }
     } else if (params.colDef.headerName == 'Deallocate Qty') {
-      if (
-        Number(params.value) > Number(params.data.allocatedQty) &&
-        Number(params.value > 0)
-      ) {
+      if (Number(params.value) > Number(params.data.allocatedQty)) {
+        this.flagForDeallocateQty = 1;
         params.node.setDataValue('CURRENT_DEALLOCATE_QTY', params.oldValue);
+        this.isDeallocateQtyValid = false;
+        this.service.isDeallocateQtyValid = this.isDeallocateQtyValid;
+      } else {
+        if (this.flagForDeallocateQty == 0) {
+          params.node.setDataValue(
+            'allocatedQty',
+            params.data.allocatedQty - Number(params.value)
+          );
+          this.isDeallocateQtyValid = true;
+          this.service.isDeallocateQtyValid = this.isDeallocateQtyValid;
+        } else {
+          this.flagForDeallocateQty = 0;
+        }
       }
     }
+
+    this.service.onDiv2CellValuChange();
   }
 }

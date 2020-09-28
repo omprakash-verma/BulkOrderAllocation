@@ -1,6 +1,12 @@
 <form #form="ngForm">
   <div class="container">
-    <div class="message" *ngIf="!isValid">Select Order!</div>
+    <div class="alloctaeMessage" *ngIf="!isAllocateQtyValid">
+      Allocate Qty cannot be greater than Free Stock/To be Allocated Qty
+    </div>
+    <div class="deallocateMessage" *ngIf="!isDeallocateQtyValid">
+      Deallocate Qty cannot be greater than Allocated Qty
+    </div>
+    <div class="message" *ngIf="!isValid">Select Order/Item/Job!</div>
     <div class="row">
       <div class="col-md-4" style="font-size: x-small; font-weight: bold">
         Order

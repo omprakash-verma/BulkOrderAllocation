@@ -35,9 +35,26 @@ export class Division1Component implements OnInit {
   SUMMARY_ITEM_ID: string;
   isShipped;
   isValid = true;
+  isAllocateQtyValid: boolean;
+  isDeallocateQtyValid: boolean;
 
   ngOnInit(): void {
     this.initialData();
+    this.isAllocateQtyValid = this.service.isAllocateQtyValid;
+    this.isDeallocateQtyValid = this.service.isDeallocateQtyValid;
+    if (this.service.subsVar3 == undefined) {
+      this.service.subsVar3 = this.service.invokeDiv1ComponentFunction.subscribe(
+        () => {
+          this.onCellValueChange();
+        }
+      );
+    }
+  }
+
+  onCellValueChange() {
+    console.log('Cell value change');
+    this.isAllocateQtyValid = this.service.isAllocateQtyValid;
+    this.isDeallocateQtyValid = this.service.isDeallocateQtyValid;
   }
 
   initialData() {
