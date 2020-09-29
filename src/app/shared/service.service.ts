@@ -140,8 +140,9 @@ export class ServiceService {
   }
 
   postData(body) {
+    // body = JSON.stringify(body);
     return this.http
-      .post(environment.apiURL + 'SaveValue', { json: body })
+      .post(environment.apiURL + 'SaveValue', { datum: body })
       .toPromise();
   }
 }

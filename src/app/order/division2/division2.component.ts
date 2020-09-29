@@ -335,7 +335,7 @@ export class Division2Component implements OnInit {
     JOB_ID,
     LOCATION_ID,
     STORE_ID,
-    isChecked
+    isShipped
   ) {
     const data = await this.service.getGrid(
       SO_ID,
@@ -345,7 +345,7 @@ export class Division2Component implements OnInit {
       JOB_ID,
       LOCATION_ID,
       STORE_ID,
-      isChecked
+      isShipped
     );
     if (data['result'] == 'no data') {
       alert('Select Order!');
@@ -359,10 +359,10 @@ export class Division2Component implements OnInit {
     let selectedNodes = myGrid.getSelectedNodes();
     let selectedData = selectedNodes.map((node) => node.data);
     if (selectedData.length != 0) {
-      let dataVal = `{"data":{"datum": ${JSON.stringify(selectedData)}}}`;
+      let dataVal = `{"datum": ${JSON.stringify(selectedData)}}`;
       console.log(dataVal);
       this.service
-        .postData(dataVal)
+        .postData(selectedData)
         .then((data) => (this.rowData = data['result']));
       this.getGridData(
         this.service.SO_ID,
